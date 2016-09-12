@@ -1,0 +1,27 @@
+{
+    "name": "lucascampelo/afd",
+    "type": "library",
+    "description" : "Biblioteca PHP para ler arquivo AFD de ponto eletrônico",
+    "keywords": ["afd", "afdt", "acjef", "ponto eletronico"],
+    "license": "MIT",
+    "homepage" : "https://github.com/lucascampelo",
+    "authors": [
+        {
+            "name" : "Lucas Campelo Araújo",
+            "email" : "campelo.lucas@hotmail.com",
+            "homepage" : "http://github.com/lucascampelo",
+            "role" : "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/lucascampelo/php-afd/issues"
+    },
+    "require": {
+        "php" : ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AFD\\": "src"
+        }
+    }
+}
