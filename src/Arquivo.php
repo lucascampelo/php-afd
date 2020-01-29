@@ -18,7 +18,7 @@ class Arquivo extends ArrayObject
      * @param Resource|string $file
      * @throws \Exception
      */
-    public function __construct($file)
+    public function __construct($file, $encoding = 'iso-8859-1')
     {
         if (!is_resource($file) && !file_exists($file)) {
             throw new \Exception("Arquivo inválido");
@@ -50,13 +50,13 @@ class Arquivo extends ArrayObject
     protected function fabricarRegistro($linha) {
         $numberTipo = (int) substr($linha, 9, 1);
         $tiposDisponiveis = [
-            Ponto::TIPO_REGISTRO     => 'AFD\Registro\Ponto',
-            Empregado::TIPO_REGISTRO => 'AFD\Registro\Empregado'
+            Ponto::TIPO_REGISTRO     => Ponto::class,
+            Empregado::TIPO_REGISTRO => Empregado::class
         ];
 
         if (array_key_exists($numberTipo, $tiposDisponiveis)) {
             $tipoRegistro = $tiposDisponiveis[ $numberTipo ];
-            return new $tipoRegistro( $linha );
+            return new $tipoRegistro( mb_convert_encoding($linha, 'utf8', 'iso-8859-1') );
         }
 
         return false;
