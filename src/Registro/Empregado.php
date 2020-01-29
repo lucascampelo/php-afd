@@ -18,7 +18,7 @@ class Empregado extends Registro
      * Expressão regular da linha para este tipo de registro
      * @type string
      */
-    const regex = "/^(?P<NSR>[0-9]{9})(?P<tipo>5)(?P<data>(?P<data_dia>[0-9]{2})(?P<data_mes>[0-9]{2})(?P<data_ano>[0-9]{4}))(?P<horario>(?P<horario_hora>[0-9]{2})(?P<horario_minuto>[0-9]{2}))(?P<operacao>[AEI])(?P<PIS>[0-9]{12})(?P<nome>[a-zA-Z0-9\ \.\,]+[a-zA-Z])/";
+    const regex = "/^(?P<NSR>[0-9]{9})(?P<tipo>5)(?P<data>(?P<data_dia>[0-9]{2})(?P<data_mes>[0-9]{2})(?P<data_ano>[0-9]{4}))(?P<horario>(?P<horario_hora>[0-9]{2})(?P<horario_minuto>[0-9]{2}))(?P<operacao>[AEI])(?P<PIS>[0-9]{12})(?P<nome>[\w\W]{0,52}[a-zA-Z])/";
 
     /**
      * Tipo de Operação:
